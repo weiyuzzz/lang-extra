@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<calibrate>
+		1
+	</calibrate>
+	
+	<global>
+		2
+	</global>
+	
+	<intercom>
+		<call>
+		3 
+		</call>
+		
+		<contact>
+		4 
+		</contact>
+		
+		<logger>
+		5 
+		</logger>
+		
+		<monitor>
+		6 
+		</monitor>
+	</intercom>
+	
+	<keyboard>
+		7 
+	</keyboard>
+	
+	<main>
+		8
+	</main>
+	
+	<message>
+		9 
+		<send>
+		10 
+		</send>
+	</message>
+	
+	<misc>
+		11 
+		<alert>
+			<input>
+			12 
+			</input>
+			
+			<input2>
+			13 
+			</input2>
+			
+			<login>
+			14 
+			</login>
+			
+			<prompt>
+			15 
+			</prompt>
+		</alert>
+		
+		<elev>
+		16 
+		</elev>
+		
+		<tips>
+			<messagebox>
+			17 
+			</messagebox>
+			
+			<prompt>
+			18 
+			</prompt>
+			
+			<qrcode>
+			19 
+			</qrcode>
+			
+			<toast>
+			20
+			</toast>
+		</tips>
+	</misc>
+	
+	<screenlock>
+	21
+	</screenlock>
+	
+	<security>
+	22 
+		<alarm>
+		23 
+		</alarm>
+		
+		<defence>
+		24 
+		</defence>
+		
+		<ipc>
+		25
+		</ipc>
+		
+		<scene>	
+		26 
+		</scene>
+		
+		<setup>
+		27
+		</setup>
+		
+		<zone>	
+		28
+		</zone>
+	</security>
+	
+	<setup>
+	29
+		<advanced>	
+		30
+		</advanced>
+		
+		<data_time>
+		31
+			<date>
+			32
+			</date>
+		
+			<time>
+			33
+			</time>
+		</data_time>
+		
+		<device>
+		34
+		</device>
+		
+		<display>
+		35
+		</display>
+		
+		<dnd>
+		36
+		</dnd>
+		
+		<lang>
+		37
+		</lang>
+		
+		<network>
+		38
+		</network>
+		
+		<network_wifi>	
+		39
+		</network_wifi>
+		
+		<passwd>
+		40
+		</passwd>
+		
+		<reset>
+		41
+		</reset>
+		
+		<room>
+		42
+		</room>
+		
+		<sip>
+		43
+		</sip>
+		
+		<sound>	
+		44
+		</sound>
+		
+		<version>
+		45
+		</version>
+		
+		<wifi>
+		46
+		</wifi>
+	</setup>
+	
+	<talk>
+	47
+	</talk>
+	
+	<test>
+	48
+	</test>
+
+</root>
