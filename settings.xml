@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  langTextExtra runtime configuration.
+  All strings are UTF-8. Adding a language only requires a new <language> line.
+  "file" is matched exactly (case-insensitively) against a file name, never
+  as a substring, so backups such as style_en.xml.bak are ignored.
+-->
+<settings version="2">
+  <languages>
+    <language file="style.xml"      code="zh-CN" name="简体中文"   reference="1"/>
+    <language file="style_ar.xml"   code="ar"    name="Arabic"/>
+    <language file="style_cht.xml"  code="zh-TW" name="繁體中文"/>
+    <language file="style_de.xml"   code="de"    name="German"/>
+    <language file="style_en.xml"   code="en"    name="English"/>
+    <language file="style_es.xml"   code="es"    name="Spanish"/>
+    <language file="style_fr.xml"   code="fr"    name="French"/>
+    <language file="style_he.xml"   code="he"    name="Hebrew"/>
+    <language file="style_it.xml"   code="it"    name="Italian"/>
+    <language file="style_nl.xml"   code="nl"    name="Dutch"/>
+    <language file="style_pl.xml"   code="pl"    name="Polish"/>
+    <language file="style_pt.xml"   code="pt"    name="Portuguese"/>
+    <language file="style_ru.xml"   code="ru"    name="Russian"/>
+    <language file="style_slo.xml"  code="sk"    name="Slovak"/>
+    <language file="style_tr.xml"   code="tr"    name="Turkish"/>
+    <language file="style_vi.xml"   code="vi"    name="Vietnamese"/>
+  </languages>
+
+  <extract>
+    <!-- Elements whose text nodes are always extracted. -->
+    <textTags>
+      <tag>text</tag>
+    </textTags>
+    <!-- Elements whose direct text nodes are extracted as well. -->
+    <specialTags>
+      <tag>panel</tag>
+      <tag>wall</tag>
+      <tag>center</tag>
+      <tag>person</tag>
+      <tag>busy</tag>
+    </specialTags>
+    <!-- Attributes used to build stable keys; the first non-empty one wins. -->
+    <keyAttributes>
+      <attr>name</attr>
+      <attr>id</attr>
+      <attr>key</attr>
+    </keyAttributes>
+    <filter skipBlank="1" skipPureNumeric="1">
+      <skipExact>%s</skipExact>
+      <skipExact>%d</skipExact>
+      <skipExact>%1$s</skipExact>
+      <skipExact>{0}</skipExact>
+      <skipExact>-</skipExact>
+      <skipExact>...</skipExact>
+    </filter>
+  </extract>
+
+  <groupMap file="config.xml"/>
+</settings>

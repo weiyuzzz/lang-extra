@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <Panel name="main">
+    <text name="extra">Extra hint</text>
+    <text name="title">Home</text>
+    <text name="greeting">Welcome. Enter your account details below and press OK to continue.</text>
+    <Button name="ok"><text>OK</text></Button>
+    <Label name="version"><text>1.2.3</text></Label>
+  </Panel>
+</root>

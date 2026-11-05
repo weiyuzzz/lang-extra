@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <Dialog name="login">
+    <text name="heading">用户登录</text>
+    <text name="prompt">请输入密码</text>
+    <Button name="submit"><text>登录</text></Button>
+  </Dialog>
+</root>

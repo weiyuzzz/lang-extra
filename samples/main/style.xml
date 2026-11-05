@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <Panel name="main">
+    <text name="title">主界面</text>
+    <text name="greeting">欢迎使用本系统，请在下方输入账号信息后点击确定继续操作。</text>
+    <Button name="ok"><text>确定</text></Button>
+    <Button name="cancel"><text>取消</text></Button>
+    <Label name="version"><text>1.2.3</text></Label>
+    <text name="clock">12:30</text>
+  </Panel>
+</root>

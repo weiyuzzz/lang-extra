@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  DuiLib Designer project file. The original value pointed at a developer's
+  Desktop (C:\Users\dnake\Desktop\...); use a path relative to this file so
+  the designer works after cloning the repository anywhere.
+-->
 <Project>
-	<ProjectPath>C:\Users\dnake\Desktop\langTextExtr V1_WindowImplBase\out\skin\</ProjectPath>
+	<ProjectPath>.\</ProjectPath>
 </Project>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <Dialog name="login">
+    <text name="heading">Sign in</text>
+    <text name="prompt">Enter your password</text>
+    <!-- Intentionally missing: demonstrates the missing-translation report. -->
+  </Dialog>
+</root>

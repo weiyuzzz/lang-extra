@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Folder path -> group title mapping. Paths use "/" and are relative to the
+  chosen input directory. Values below are the original placeholder labels
+  shipped with the tool; replace them with real module names as needed.
+  The legacy nested form (<misc><alert><login>...</login></alert></misc>)
+  is still understood by the loader.
+-->
+<root>
+  <group path="calibrate"                 title="1"/>
+  <group path="global"                    title="2"/>
+  <group path="intercom/call"             title="3"/>
+  <group path="intercom/contact"          title="4"/>
+  <group path="intercom/logger"           title="5"/>
+  <group path="intercom/monitor"          title="6"/>
+  <group path="keyboard"                  title="7"/>
+  <group path="main"                      title="8"/>
+  <group path="message"                   title="9"/>
+  <group path="message/send"              title="10"/>
+  <group path="misc"                      title="11"/>
+  <group path="misc/alert/input"          title="12"/>
+  <group path="misc/alert/input2"         title="13"/>
+  <group path="misc/alert/login"          title="14"/>
+  <group path="misc/alert/prompt"         title="15"/>
+  <group path="misc/elev"                 title="16"/>
+  <group path="misc/tips/messagebox"      title="17"/>
+  <group path="misc/tips/prompt"          title="18"/>
+  <group path="misc/tips/qrcode"          title="19"/>
+  <group path="misc/tips/toast"           title="20"/>
+  <group path="screenlock"                title="21"/>
+  <group path="security"                  title="22"/>
+  <group path="security/alarm"            title="23"/>
+  <group path="security/defence"          title="24"/>
+  <group path="security/ipc"              title="25"/>
+  <group path="security/scene"            title="26"/>
+  <group path="security/setup"            title="27"/>
+  <group path="security/zone"             title="28"/>
+  <group path="setup"                     title="29"/>
+  <group path="setup/advanced"            title="30"/>
+  <group path="setup/data_time"           title="31"/>
+  <group path="setup/data_time/date"      title="32"/>
+  <group path="setup/data_time/time"      title="33"/>
+  <group path="setup/device"              title="34"/>
+  <group path="setup/display"             title="35"/>
+  <group path="setup/dnd"                 title="36"/>
+  <group path="setup/lang"                title="37"/>
+  <group path="setup/network"             title="38"/>
+  <group path="setup/network_wifi"        title="39"/>
+  <group path="setup/passwd"              title="40"/>
+  <group path="setup/reset"               title="41"/>
+  <group path="setup/room"                title="42"/>
+  <group path="setup/sip"                 title="43"/>
+  <group path="setup/sound"               title="44"/>
+  <group path="setup/version"             title="45"/>
+  <group path="setup/wifi"                title="46"/>
+  <group path="talk"                      title="47"/>
+  <group path="test"                      title="48"/>
+</root>

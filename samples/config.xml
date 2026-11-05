@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Folder path -> group title. Paths are relative to the input root. -->
+<root>
+  <group path="main"       title="Main screen"/>
+  <group path="misc/alert" title="Alert dialogs"/>
+</root>

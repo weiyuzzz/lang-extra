@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <group path="main" title="Main module"/>
+  <group path="sub"  title="Sub module"/>
+  <legacy>
+    <nested>42</nested>
+  </legacy>
+</root>

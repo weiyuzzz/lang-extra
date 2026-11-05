@@ -1,0 +1,85 @@
+# ---------------------------------------------------------------------------
+# langTextExtra - generated files and local build products
+# ---------------------------------------------------------------------------
+
+# Local / out-of-tree CMake & validation builds
+/build/
+/cmake-build*/
+/out/build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+build.ninja
+.ninja_deps
+.ninja_log
+compile_commands.json
+CTestTestfile.cmake
+Testing/
+
+# Visual Studio / MSVC intermediate and user-specific files
+[Dd]ebug/
+[Rr]elease/
+[Dd]ebug_u/
+[Rr]elease_u/
+x64/
+Win32/
+ipch/
+.vs/
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.exp
+*.tlog
+*.lastbuildstate
+*.unsuccessfulbuild
+*.recipe
+*.FileListAbsolute.txt
+*.Build.CppClean.log
+*.vcxproj.user
+*.vcxproj.filters.user
+*.suo
+*.VC.db
+*.vsidx
+*.sdf
+*.opensdf
+*.pch
+*.aps
+*.res
+*.bsc
+
+# Compiled binaries shipped next to legacy runtime assets.
+# NOTE: out/config.xml and out/skin/* ARE source assets - keep them tracked.
+out/*.exe
+out/*.dll
+out/*.lib
+out/*.pdb
+out/*.ilk
+
+# Prebuilt libraries produced by the vendored subprojects
+*.lib
+*.a
+*.so
+*.dylib
+
+# Generated build trees that were accidentally committed inside the vendored
+# sources. These contain CMake-produced .vcxproj/.sln/zconf.h files as well as
+# .obj/.pdb, so ignore the whole directories explicitly.
+langTextExtra/Debug/
+langTextExtra/langTextExtra/Debug/
+langTextExtra/langTextExtra/x64/
+langTextExtra/DuiLib/Build/
+langTextExtra/DuiLib/.vs/
+langTextExtra/zlib-1.3.1/build/
+
+# Generated translation tables / reports (keep outputs under build/ by default)
+/translations*.csv
+/translations*.xlsx
+/report.json
+*.xlsx.tmp
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+*.swp
+*~

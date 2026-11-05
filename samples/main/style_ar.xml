@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Arabic text is written with numeric character references on purpose:
+     it exercises UTF-8 entity decoding (the old TIXML_ENCODING_LEGACY
+     build produced mojibake for these). Hex and decimal forms both work. -->
+<root>
+  <Panel name="main">
+    <text name="title">&#x627;&#x644;&#x631;&#x626;&#x64A;&#x633;&#x64A;&#x629;</text>
+    <text name="greeting">&#x645;&#x631;&#x62D;&#x628;&#x627; &#x628;&#x643;. &#x623;&#x62F;&#x62E;&#x644; &#x628;&#x64A;&#x627;&#x646;&#x627;&#x62A; &#x62D;&#x633;&#x627;&#x628;&#x643; &#x62B;&#x645; &#x627;&#x636;&#x63A;&#x637; &#x645;&#x648;&#x627;&#x641;&#x642;.</text>
+    <Button name="ok"><text>&#1605;&#x648;&#x627;&#x641;&#x642;</text></Button>
+    <Button name="cancel"><text>&#x625;&#x644;&#x63A;&#x627;&#x621;</text></Button>
+    <Label name="version"><text>1.2.3</text></Label>
+    <text name="clock">12:30</text>
+  </Panel>
+</root>

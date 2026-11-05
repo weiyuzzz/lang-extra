@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <Panel name="entities">
+    <text name="amp">A &amp; B</text>
+    <text name="numeric">&#x4E2D;&#x6587;</text>
+    <text name="decimal">&#20013;&#25991;</text>
+  </Panel>
+</root>

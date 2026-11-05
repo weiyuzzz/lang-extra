@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="2">
+  <languages>
+    <language file="style.xml"     code="zh-CN" name="简体中文" reference="1"/>
+    <language file="style_en.xml"  code="en"    name="English"/>
+  </languages>
+  <extract>
+    <textTags><tag>text</tag></textTags>
+    <specialTags><tag>panel</tag></specialTags>
+    <keyAttributes>
+      <attr>name</attr>
+      <attr>id</attr>
+      <attr>key</attr>
+    </keyAttributes>
+    <filter skipBlank="1" skipPureNumeric="1">
+      <skipExact>%s</skipExact>
+    </filter>
+  </extract>
+  <groupMap file="config.xml"/>
+</settings>

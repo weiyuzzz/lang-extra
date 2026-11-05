@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <Panel name="sub">
+    <text name="label">Sub module</text>
+  </Panel>
+</root>

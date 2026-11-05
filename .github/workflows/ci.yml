@@ -1,0 +1,104 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  linux:
+    name: Linux GCC (XLSX=${{ matrix.xlsx }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        xlsx: ["OFF", "ON"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: >-
+          cmake -S . -B build
+          -DCMAKE_BUILD_TYPE=Release
+          -DLANGTEXT_BUILD_TESTS=ON
+          -DLANGTEXT_BUILD_GUI=OFF
+          -DLANGTEXT_WITH_XLSX=${{ matrix.xlsx }}
+
+      - name: Build
+        run: cmake --build build --parallel 2
+
+      - name: Unit tests
+        run: ctest --test-dir build --output-on-failure
+
+      - name: CLI smoke test (CSV + JSON report)
+        run: |
+          ./build/cli/langtext --input samples --output build/smoke.csv --report build/smoke.json
+          test -s build/smoke.csv
+          python3 - <<'PY'
+          import json
+          with open('build/smoke.json', encoding='utf-8') as f:
+              data = json.load(f)
+          stats = data['stats']
+          assert stats['groups'] == 2, stats
+          assert stats['entries'] == 7, stats
+          assert stats['missing'] == 4, stats
+          assert stats['errors'] == 0, stats
+          assert len(data['issues']) == 6, data['issues']
+          print('CSV/JSON stats:', stats)
+          PY
+
+      - name: CLI smoke test (XLSX with non-ASCII output file name)
+        if: matrix.xlsx == 'ON'
+        run: |
+          ./build/cli/langtext --input samples --output "build/翻译表.xlsx" --quiet
+          python3 - <<'PY'
+          import zipfile
+          with zipfile.ZipFile('build/翻译表.xlsx') as z:
+              assert 'xl/sharedStrings.xml' in z.namelist()
+              strings = z.read('xl/sharedStrings.xml').decode('utf-8')
+          assert 'الرئيسية' in strings, 'Arabic text missing from workbook'
+          assert '[MISSING]' in strings, 'missing marker absent from workbook'
+          print('XLSX content verified')
+          PY
+
+      - name: CI gate (missing translations must exit 2)
+        run: |
+          set +e
+          ./build/cli/langtext --input samples --output build/gate.csv \
+              --fail-on-missing --quiet
+          code=$?
+          set -e
+          test "$code" -eq 2 || { echo "expected exit 2, got $code"; exit 1; }
+
+  windows:
+    name: Windows MSVC (core + CLI)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: >-
+          cmake -S . -B build
+          -DLANGTEXT_BUILD_TESTS=ON
+          -DLANGTEXT_BUILD_GUI=OFF
+
+      - name: Build
+        run: cmake --build build --config Release --parallel 2
+
+      - name: Unit tests
+        run: ctest --test-dir build -C Release --output-on-failure
+
+      # Guards the UTF-16 command line handling: char** argv arrives in the
+      # ANSI code page on Windows, so a Chinese output path used to crash.
+      - name: CLI smoke test with non-ASCII output path
+        shell: pwsh
+        run: |
+          .\build\cli\Release\langtext.exe --input samples --output "build\翻译表.csv" --quiet
+          if (-not (Test-Path -LiteralPath "build\翻译表.csv")) {
+            throw "non-ASCII output path was not created"
+          }
+          Get-Item -LiteralPath "build\翻译表.csv" | Select-Object FullName, Length

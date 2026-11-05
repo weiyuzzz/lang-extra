@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Minimal configuration used by the bundled sample data. The CLI and GUI
+     auto-discover this file by walking up from the selected input folder. -->
+<settings version="2">
+  <languages>
+    <language file="style.xml"     code="zh-CN" name="简体中文" reference="1"/>
+    <language file="style_en.xml"  code="en"    name="English"/>
+    <language file="style_ar.xml"  code="ar"    name="Arabic"/>
+  </languages>
+
+  <extract>
+    <textTags><tag>text</tag></textTags>
+    <specialTags>
+      <tag>panel</tag>
+    </specialTags>
+    <keyAttributes>
+      <attr>name</attr>
+      <attr>id</attr>
+      <attr>key</attr>
+    </keyAttributes>
+    <filter skipBlank="1" skipPureNumeric="1"/>
+  </extract>
+
+  <groupMap file="config.xml"/>
+</settings>

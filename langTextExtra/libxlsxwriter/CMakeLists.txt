@@ -103,18 +103,22 @@
 #           https://cmake.org/cmake/help/v3.0/manual/cmake-generators.7.html
 #
 
-set(ZLIB_INCLUDE_DIR "C:\\Users\\dnake\\Desktop\\langTextExtra_dui_xls\\langTextExtra_dui\\zlib-1.3.1"  "C:\\Users\\dnake\\Desktop\\langTextExtra_dui_xls\\langTextExtra_dui\\zlib-1.3.1\\build")
-set(ZLIB_LIBRARY "C:\\Users\\dnake\\Desktop\\langTextExtra_dui_xls\\langTextExtra_dui\\zlib-1.3.1\\build\Release\\zlib.lib")
-
-include_directories(${ZLIB_INCLUDE_DIR})
-link_directories(${ZLIB_LIBRARY})
+# Fixed upstream: the original file hard-coded one developer's absolute paths.
+# Prefer the vendored zlib sources shipped next to this directory; otherwise
+# find_package() below falls back to a system zlib installation.
+if(NOT ZLIB_INCLUDE_DIR AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../zlib-1.3.1/zlib.h")
+    set(ZLIB_INCLUDE_DIR
+        "${CMAKE_CURRENT_SOURCE_DIR}/../zlib-1.3.1"
+        "${CMAKE_CURRENT_BINARY_DIR}/../zlib-1.3.1")
+endif()
+if(ZLIB_INCLUDE_DIR)
+    include_directories(${ZLIB_INCLUDE_DIR})
+endif()
 
 set(CMAKE_LEGACY_CYGWIN_WIN32 1)
-if(MSVC)
-    cmake_minimum_required(VERSION 3.4)
-else()
-    cmake_minimum_required(VERSION 3.1)
-endif()
+# Fixed upstream: CMake 4 rejects a plain `VERSION 3.1/3.4` minimum. Match
+# the parent project's minimum so no deprecated-policy warnings are emitted.
+cmake_minimum_required(VERSION 3.16)
 
 SET(XLSX_PROJECT_NAME "xlsxwriter" CACHE STRING "Optional project and binary name")
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
@@ -230,7 +234,14 @@ enable_language(CXX)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 # ZLIB
-find_package(ZLIB "1.0" REQUIRED)
+if(TARGET zlibstatic)
+    set(ZLIB_FOUND TRUE)
+    set(ZLIB_LIBRARIES zlibstatic)
+    set(ZLIB_INCLUDE_DIRS ${ZLIB_INCLUDE_DIR})
+    set(ZLIB_VERSION "1.3.1 (vendored)")
+else()
+    find_package(ZLIB "1.0" REQUIRED)
+endif()
 list(APPEND LXW_PRIVATE_INCLUDE_DIRS ${ZLIB_INCLUDE_DIRS})
 message("zlib version: " ${ZLIB_VERSION})
 
